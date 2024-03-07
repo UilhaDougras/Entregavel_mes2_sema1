@@ -1,5 +1,5 @@
 package app.repository;
 
-public class VendaRepository {
+public interface VendaRepository {
 
 }
