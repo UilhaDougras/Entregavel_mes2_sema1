@@ -16,5 +16,10 @@ public class ProdutoService {
 	public List<Produto> findAll() {
 		return this.produtoRepository.findAll();
 	}
+
+	public Produto findById(long id) {
+		// TODO Auto-generated method stub
+		return this.produtoRepository.findById(id).get();
+	}
 	
 }
