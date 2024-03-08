@@ -42,6 +42,7 @@ public class ProdutoController {
 	@PostMapping("/save")
 	public ResponseEntity<String> save(@RequestBody Produto produto) {
 		try {
+			this.produtoService.save(produto);
 			return new ResponseEntity<String>("O produto " + produto.getNome() + " foi cadastrado com sucesso", HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<String>("Houve o erro: " + e, HttpStatus.BAD_REQUEST);
