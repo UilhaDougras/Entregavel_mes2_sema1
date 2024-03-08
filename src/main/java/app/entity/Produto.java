@@ -26,4 +26,6 @@ public class Produto {
 	
 	@NotNull(message = "Erro campo vazio")
 	private double Valor;
+	
+	
 }
