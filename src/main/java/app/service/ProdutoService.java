@@ -21,5 +21,9 @@ public class ProdutoService {
 		// TODO Auto-generated method stub
 		return this.produtoRepository.findById(id).get();
 	}
+
+	public void save(Produto produto) {
+		this.produtoRepository.save(produto);
+	}
 	
 }
