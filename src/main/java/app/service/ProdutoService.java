@@ -25,5 +25,9 @@ public class ProdutoService {
 	public void save(Produto produto) {
 		this.produtoRepository.save(produto);
 	}
-	
+
+	public void update(long id, Produto produto) {
+		produto.setIdProduto(id);
+		this.produtoRepository.save(produto);
+	}
 }
