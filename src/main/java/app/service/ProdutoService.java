@@ -30,4 +30,10 @@ public class ProdutoService {
 		produto.setIdProduto(id);
 		this.produtoRepository.save(produto);
 	}
+
+	public String delete(long id) {
+		String nome = findById(id).getNome();
+		this.produtoRepository.deleteById(id);
+		return nome;
+	}
 }
