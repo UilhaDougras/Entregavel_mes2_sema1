@@ -21,7 +21,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-
 public class Venda {
 
 	@Id
