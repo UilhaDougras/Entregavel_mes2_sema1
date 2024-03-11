@@ -1,9 +1,12 @@
 package app.entity;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -37,5 +40,8 @@ public class Cliente {
 	@Pattern(regexp = "(^\\([1-9]{2}\\)(?:[2-8]|9[0-9])[0-9]{3}\\-[0-9]{4}$)")
 	@NotBlank(message = "Telefone invalido")
 	private String telefone;
+	
+	@OneToMany(mappedBy = "cliente")
+	private List<Funcionario>funcionario;
 	
 }
