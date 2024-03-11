@@ -69,5 +69,4 @@ public class FuncionarioController {
 			return new ResponseEntity<String>("Houve o erro: " + e, HttpStatus.BAD_REQUEST);
 		}
 	}
-
 }
