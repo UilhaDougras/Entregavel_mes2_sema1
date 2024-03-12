@@ -3,10 +3,12 @@ package app.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import app.entity.Venda;
 import app.repository.VendaRepository;
 
+@Service
 public class VendaService {
 	@Autowired
 	public VendaRepository vendaRepository;

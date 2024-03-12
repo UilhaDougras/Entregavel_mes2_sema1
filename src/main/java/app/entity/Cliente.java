@@ -30,7 +30,7 @@ public class Cliente {
 	@NotBlank(message = "Erro campo vazio")
 	private String nome;
 	
-	@Pattern(regexp = "(^\\d{3}\\x2E\\d{3}\\x2D\\d{2}$)")
+	@Pattern(regexp = "(^\\d{3}\\.\\d{3}\\-\\d{2}$)")
 	@NotBlank(message = "CPF invalido")
 	private String cpf;
 	
