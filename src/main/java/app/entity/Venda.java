@@ -2,6 +2,9 @@ package app.entity;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -40,4 +44,8 @@ public class Venda {
 			inverseJoinColumns = @JoinColumn(name = "IdProduto")
 			)
 	private List<Produto>produto;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("venda")
+	private Cliente cliente;
 }
