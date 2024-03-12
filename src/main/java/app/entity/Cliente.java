@@ -42,5 +42,5 @@ public class Cliente {
 	private String telefone;
 	
 	@OneToMany(mappedBy = "cliente")
-	private List<Venda> venda;
+	private List<Venda> vendas;
 }

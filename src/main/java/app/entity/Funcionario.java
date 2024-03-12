@@ -6,9 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -28,19 +26,14 @@ public class Funcionario {
 	private long idFuncionario;
 	
 	@NotBlank(message = "Erro campo vazio")
-	private String Nome;
+	private String nome;
 	
 	@NotNull(message = "Erro campo vazio")
-	private int Idade;
+	private int idade;
 	
 	@NotNull(message = "Erro campo vazio")
-	private int Matricula;
+	private int matricula;
 	
-	@ManyToMany
-	@JoinTable(
-			name = "funcionario_venda",
-			joinColumns = @JoinColumn(name = "IdFuncionario"),
-			inverseJoinColumns = @JoinColumn(name = "IdVenda")
-			)
-	private List<Venda>venda;
+	@OneToMany(mappedBy = "funcionario")
+	private List<Venda> vendas;
 }

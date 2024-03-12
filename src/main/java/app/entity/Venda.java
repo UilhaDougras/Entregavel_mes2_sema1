@@ -43,9 +43,13 @@ public class Venda {
 			joinColumns = @JoinColumn(name = "IdVenda"),
 			inverseJoinColumns = @JoinColumn(name = "IdProduto")
 			)
-	private List<Produto>produto;
+	private List<Produto>produtos;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JsonIgnoreProperties("venda")
+	@JsonIgnoreProperties("vendas")
 	private Cliente cliente;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("vendas")
+	private Funcionario funcionario;
 }

@@ -23,8 +23,8 @@ public class Produto {
 	private long idProduto;
 	
 	@NotBlank(message = "Erro campo vazio")
-	private String Nome;
+	private String nome;
 	
 	@NotNull(message = "Erro campo vazio")
-	private double Valor;
+	private double valor;
 }
