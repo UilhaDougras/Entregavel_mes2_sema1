@@ -36,4 +36,10 @@ public class ProdutoService {
 		this.produtoRepository.deleteById(id);
 		return nome;
 	}
+	
+	public List<Produto> findByPodutoValor(double valor){
+		return this.produtoRepository.findByPodutoValor(valor);
+	}
+		
+	
 }
