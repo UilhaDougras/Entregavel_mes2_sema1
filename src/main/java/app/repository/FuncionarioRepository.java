@@ -9,6 +9,8 @@ import app.entity.Funcionario;
 
 public interface FuncionarioRepository extends JpaRepository<Funcionario, Long>{
 
+	public List<Funcionario> findByNome(String nome);
+	
 	public List<Funcionario> findByIdade(int idade);
 	
 	public List<Funcionario> findByMatricula(int matricula);
@@ -16,5 +18,5 @@ public interface FuncionarioRepository extends JpaRepository<Funcionario, Long>{
 	@Query("SELECT f"
 			+ "FROM Funcionario f"
 			+ "WHERE f.idade > :idade")
-	public List<Funcionario> findFuncionarioIdade(int idade);
+	public List<Funcionario> findByFuncionarioIdade(int idade);
 }

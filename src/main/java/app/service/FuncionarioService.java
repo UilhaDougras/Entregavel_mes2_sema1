@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import app.entity.Funcionario;
+import app.entity.Produto;
 import app.repository.FuncionarioRepository;
 
 @Service
@@ -37,4 +38,20 @@ public class FuncionarioService {
 		return nome;
 	}
 
+	public List<Funcionario> findByNome(String nome) {
+		return this.funcionarioRepository.findByNome(nome);
+	}
+	
+	public List<Funcionario> findByIdade(int idade) {
+		return this.funcionarioRepository.findByIdade(idade);
+	}
+	
+	public List<Funcionario> findByFuncionarioIdade(int idade){
+		return this.funcionarioRepository.findByIdade(idade);
+	}
+	
+	public List<Funcionario> findByMatricula(int matricula) {
+		return this.funcionarioRepository.findByMatricula(matricula);
+	}
+	
 }

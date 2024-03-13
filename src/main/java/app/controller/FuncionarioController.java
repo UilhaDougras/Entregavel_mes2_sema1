@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import app.entity.Funcionario;
@@ -67,6 +68,58 @@ public class FuncionarioController {
 			return new ResponseEntity<String>("O funcionario " + this.funcionarioService.delete(id) + " foi deletado com sucesso", HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<String>("Houve o erro: " + e, HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@GetMapping("/findByNome")
+	public ResponseEntity<List<Funcionario>> FuncionariofindByNome(@RequestParam String nome){
+		
+		try {
+			
+			List<Funcionario> lista = this.funcionarioService.findByNome(nome);
+			return new ResponseEntity<>(lista, HttpStatus.OK);
+		}catch (Exception e) {
+			
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@GetMapping("/findByIdade")
+	public ResponseEntity<List<Funcionario>> FuncionariofindByIdade (@RequestParam int idade){
+		
+		try {
+			
+			List<Funcionario> lista = this.funcionarioService.findByIdade(idade);
+			return new ResponseEntity<>(lista, HttpStatus.OK);
+		}catch (Exception e) {
+			
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@GetMapping("/findByFuncionarioIdade")
+	public ResponseEntity<List<Funcionario>> findByFuncionarioIdade (@RequestParam int idade){
+		
+		try {
+			
+			List<Funcionario> lista = this.funcionarioService.findByFuncionarioIdade(idade);
+			return new ResponseEntity<>(lista, HttpStatus.OK);
+		}catch (Exception e) {
+			
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@GetMapping("/findByMatricula")
+	public ResponseEntity<List<Funcionario>> FuncionariofindByMatricula (@RequestParam int matricula){
+		
+		try {
+			
+			List<Funcionario> lista = this.funcionarioService.findByIdade(matricula);
+			return new ResponseEntity<>(lista, HttpStatus.OK);
+		}catch (Exception e) {
+			
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 		}
 	}
 }

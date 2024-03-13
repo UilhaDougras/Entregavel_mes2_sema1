@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import app.entity.Funcionario;
 import app.entity.Produto;
 import app.service.ProdutoService;
 
@@ -67,6 +69,44 @@ public class ProdutoController {
 			return new ResponseEntity<String>("O produto " + this.produtoService.delete(id) + " foi deletado com sucesso", HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<String>("Houve o erro: " + e, HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@GetMapping("/findByNome")
+	public ResponseEntity<List<Produto>> findByIdade (@RequestParam String nome){
+		
+		try {
+			
+			List<Produto> lista = this.produtoService.findByNome(nome);
+			return new ResponseEntity<>(lista, HttpStatus.OK);
+		}catch (Exception e) {
+			
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@GetMapping("/findByValor")
+	public ResponseEntity<List<Produto>> findByValor (@RequestParam double valor){
+		
+		try {
+			
+			List<Produto> lista = this.produtoService.findByValor(valor);
+			return new ResponseEntity<>(lista, HttpStatus.OK);
+		}catch (Exception e) {
+			
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+		}
+	}
+	@GetMapping("/findByProdutoValor")
+	public ResponseEntity<List<Produto>> findByPodutoValor (@RequestParam double valor){
+		
+		try {
+			
+			List<Produto> lista = this.produtoService.findByPodutoValor(valor);
+			return new ResponseEntity<>(lista, HttpStatus.OK);
+		}catch (Exception e) {
+			
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 		}
 	}
 }
