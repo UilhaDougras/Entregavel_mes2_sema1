@@ -102,7 +102,7 @@ public class VendaController {
 	@GetMapping("/findByProduto/{id}")
 	public ResponseEntity<List<Venda>> findByProduto (@PathVariable long id){
 		try {
-			return new ResponseEntity<List<Venda>>(this.vendaService.findByProduto(id), HttpStatus.FOUND);
+			return new ResponseEntity<List<Venda>>(this.vendaService.findByProdutos(id), HttpStatus.FOUND);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 		}

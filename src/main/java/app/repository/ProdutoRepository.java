@@ -14,7 +14,7 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long>{
 	public List<Produto> findByValor(double valor);
 	
 	@Query("SELECT p "
-			+ "FROM Produto p"
+			+ "FROM Produto p "
 			+ "WHERE p. valor> :valor")
 	public List<Produto> findByPodutoValor(double valor);
 	

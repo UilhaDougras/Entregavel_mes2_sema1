@@ -50,10 +50,10 @@ public class VendaService {
 		return this.vendaRepository.findByValorMaior(valor);
 	}
 
-	public List<Venda> findByProduto(long id) {
+	public List<Venda> findByProdutos(long id) {
 		Produto produto = new Produto();
 		produto.setIdProduto(id);
-		return this.vendaRepository.findByProduto(produto);
+		return this.vendaRepository.findByProdutos(produto);
 	}
 
 }
