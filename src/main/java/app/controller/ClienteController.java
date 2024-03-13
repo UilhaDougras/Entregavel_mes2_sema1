@@ -87,7 +87,7 @@ public class ClienteController {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 		}
 	}
-	@GetMapping("/findByIdadeMaior")
+	@GetMapping("/findByMaiorIdade")
 	public ResponseEntity<List<Cliente>> findByIdadeMaior(@RequestParam int idade){
 		try {
 			return new ResponseEntity<List<Cliente>>(this.clienteService.findByIdadeMaior(idade), HttpStatus.FOUND);

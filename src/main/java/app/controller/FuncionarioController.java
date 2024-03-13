@@ -90,7 +90,7 @@ public class FuncionarioController {
 		try {
 			
 			List<Funcionario> lista = this.funcionarioService.findByIdade(idade);
-			return new ResponseEntity<>(lista, HttpStatus.OK);
+			return new ResponseEntity<List<Funcionario>>(lista, HttpStatus.OK);
 		}catch (Exception e) {
 			
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
@@ -103,7 +103,7 @@ public class FuncionarioController {
 		try {
 			
 			List<Funcionario> lista = this.funcionarioService.findByFuncionarioIdade(idade);
-			return new ResponseEntity<>(lista, HttpStatus.OK);
+			return new ResponseEntity<List<Funcionario>>(lista, HttpStatus.OK);
 		}catch (Exception e) {
 			
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
@@ -115,8 +115,8 @@ public class FuncionarioController {
 		
 		try {
 			
-			List<Funcionario> lista = this.funcionarioService.findByIdade(matricula);
-			return new ResponseEntity<>(lista, HttpStatus.OK);
+			List<Funcionario> lista = this.funcionarioService.findByMatricula(matricula);
+			return new ResponseEntity<List<Funcionario>>(lista, HttpStatus.OK);
 		}catch (Exception e) {
 			
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
