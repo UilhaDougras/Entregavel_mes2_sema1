@@ -37,4 +37,16 @@ public class ClienteService {
 		return nome;
 	}
 
+	public List<Cliente> findByNome(String nome) {
+		return this.clienteRepository.findByNome(nome);
+	}
+
+	public List<Cliente> findByTelefone(String telefone) {
+		return this.clienteRepository.findByTelefone(telefone);
+	}
+
+	public List<Cliente> findByIdadeMaior(int idade) {
+		return this.clienteRepository.findByIdadeMaior(idade);
+	}
+
 }

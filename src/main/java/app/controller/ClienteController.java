@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import app.entity.Cliente;
@@ -69,5 +70,29 @@ public class ClienteController {
 			return new ResponseEntity<String>("Houve o erro: " + e, HttpStatus.BAD_REQUEST);
 		}
 	}
-
+	
+	@GetMapping("/findByNome")
+	public ResponseEntity<List<Cliente>> findByNome(@RequestParam String nome){
+		try {
+			return new ResponseEntity<List<Cliente>>(this.clienteService.findByNome(nome), HttpStatus.FOUND);
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+		}
+	}
+	@GetMapping("/findByTelefone")
+	public ResponseEntity<List<Cliente>> findByTelefone(@RequestParam String telefone){
+		try {
+			return new ResponseEntity<List<Cliente>>(this.clienteService.findByTelefone(telefone), HttpStatus.FOUND);
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+		}
+	}
+	@GetMapping("/findByIdadeMaior")
+	public ResponseEntity<List<Cliente>> findByIdadeMaior(@RequestParam int idade){
+		try {
+			return new ResponseEntity<List<Cliente>>(this.clienteService.findByIdadeMaior(idade), HttpStatus.FOUND);
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+		}
+	}
 }
