@@ -24,6 +24,11 @@ public class VendaService {
 	}
 
 	public void save(Venda venda) {
+		double valorTotal = 0;
+		for(Produto produto : venda.getProdutos()) {
+			valorTotal += produto.getValor();
+		}
+		venda.setValor(valorTotal);		
 		this.vendaRepository.save(venda);
 	}
 

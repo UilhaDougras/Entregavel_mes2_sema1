@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -32,7 +33,7 @@ public class Cliente {
 	@NotBlank(message = "Erro campo vazio")
 	private String nome;
 	
-	@Pattern(regexp = "(^\\d{3}\\.\\d{3}\\-\\d{2}$)")
+	@Pattern(regexp = "(^\\d{3}\\.\\d{3}\\.\\d{3}\\-\\d{2}$)")
 	@NotBlank(message = "CPF invalido")
 	private String cpf;
 	

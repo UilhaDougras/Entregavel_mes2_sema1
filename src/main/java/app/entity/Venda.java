@@ -37,7 +37,7 @@ public class Venda {
 	@NotNull(message = "Erro campo vazio")
 	private double valor;
 	
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(
 			name = "venda_produto", 
 			joinColumns = @JoinColumn(name = "IdVenda"),
