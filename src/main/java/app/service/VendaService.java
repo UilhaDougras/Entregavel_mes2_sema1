@@ -11,6 +11,7 @@ import app.repository.VendaRepository;
 
 @Service
 public class VendaService {
+	
 	@Autowired
 	public VendaRepository vendaRepository;
 
@@ -19,21 +20,18 @@ public class VendaService {
 	}
 
 	public Venda findById(long id) {
-		// TODO Auto-generated method stub
 		return this.vendaRepository.findById(id).get();
 	}
 
 	public void save(Venda venda) {
-		double valorTotal = 0;
-		for(Produto produto : venda.getProdutos()) {
-			valorTotal += produto.getValor();
-		}
-		venda.setValor(valorTotal);		
+		venda.setValor(calcularValorTotal(venda.getProdutos()));
 		this.vendaRepository.save(venda);
 	}
 
 	public void update(long id, Venda venda) {
 		venda.setIdVenda(id);
+		venda.setValor(calcularValorTotal(venda.getProdutos()));
+		venda = verificarStatus(venda);
 		this.vendaRepository.save(venda);
 	}
 
@@ -60,5 +58,23 @@ public class VendaService {
 		produto.setIdProduto(id);
 		return this.vendaRepository.findByProdutos(produto);
 	}
+
+	public double calcularValorTotal(List<Produto> produtos) {
+		double valorTotal = 0;
+		for(Produto produto : produtos) {
+			valorTotal += produto.getValor();
+		}
+		return valorTotal;
+	}
+	
+	public Venda verificarStatus(Venda venda) {
+		if(venda.getStatus().equalsIgnoreCase("CANCELADO")) {
+			venda.setProdutos(null);
+			venda.setValor(0);
+		}
+		return venda;
+	}
+	
+	
 
 }

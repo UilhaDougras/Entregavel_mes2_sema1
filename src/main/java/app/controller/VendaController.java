@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import app.entity.Produto;
 import app.entity.Venda;
 import app.service.VendaService;
 
@@ -47,7 +46,7 @@ public class VendaController {
 	public ResponseEntity<String> save(@RequestBody Venda venda) {
 		try {
 			this.vendaService.save(venda);
-			return new ResponseEntity<String>("O venda " + Integer.toString((int) venda.getIdVenda()) + " foi cadastrado com sucesso", HttpStatus.CREATED);
+			return new ResponseEntity<String>("A venda " + Integer.toString((int) venda.getIdVenda()) + " foi cadastrado com sucesso", HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<String>("Houve o erro: " + e, HttpStatus.BAD_REQUEST);
 		}
